@@ -1,5 +1,7 @@
 package com.tns.shopping.repository;
 
+import entities.Order;
+
 public interface IOrderRepository 
 {
 	public abstract Order addOrder(Order order);

@@ -1,54 +1,87 @@
 package com.tns.shopping.entities;
 
 import java.io.Serializable;
-public class Customer implements Serializable
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Shop")
+public class Shop implements Serializable
 {
 	private static final long serialVersionUID=1L;
 	@Id
-	
-	private int id;
-	
-	private String name;
-	
-	private OrderDetails order_id;
-
-	private String phone;
-	
-	private String email;
-	public int getId() {
-		return id;
-	
+	@Column(name="shopId")
+	private int shopId;
+	@Column(name="shopCategory")
+	private String shopCategory;
+	@Column(name="shopEmployeeID")
+	private int shopEmployeeID;
+	@Column(name="shopName")
+	private String shopName;
+	@Column(name="customers")
+	private String Customers;
+	@Column(name="shopStatus")
+	private String shopStatus;
+	@Column(name="shopOwner")
+	private String shopOwner;
+	@Column(name="leaseStatus")
+	private String leaseStatus;
+	public int getShopId() {
+		return shopId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setShopId(int shopId) {
+		this.shopId = shopId;
 	}
-	public String getName() {
-		return name;
+	public String getShopCategory() {
+		return shopCategory;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setShopCategory(String shopCategory) {
+		this.shopCategory = shopCategory;
 	}
-	public OrderDetails getOrder_id() {
-		return order_id;
+	public int getShopEmployeeID() {
+		return shopEmployeeID;
 	}
-	public void setOrder_id(OrderDetails order_id) {
-		this.order_id = order_id;
+	public void setShopEmployeeID(int shopEmployeeID) {
+		this.shopEmployeeID = shopEmployeeID;
 	}
-	public String getPhone() {
-		return phone;
+	public String getShopName() {
+		return shopName;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
 	}
-	public String getEmail() {
-		return email;
+	public String getCustomers() {
+		return Customers;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCustomers(String customers) {
+		Customers = customers;
+	}
+	public String getShopStatus() {
+		return shopStatus;
+	}
+	public void setShopStatus(String shopStatus) {
+		this.shopStatus = shopStatus;
+	}
+	public String getShopOwner() {
+		return shopOwner;
+	}
+	public void setShopOwner(String shopOwner) {
+		this.shopOwner = shopOwner;
+	}
+	public String getLeaseStatus() {
+		return leaseStatus;
+	}
+	public void setLeaseStatus(String leaseStatus) {
+		this.leaseStatus = leaseStatus;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", phone=" + phone + ", email=" + email + "]";
+		return "Shop [shopId=" + shopId + ", shopCategory=" + shopCategory + ", shopEmployeeID=" + shopEmployeeID
+				+ ", shopName=" + shopName + ", Customers=" + Customers + ", shopStatus=" + shopStatus + ", shopOwner="
+				+ shopOwner + ", leaseStatus=" + leaseStatus + "]";
 	}
 	
 }

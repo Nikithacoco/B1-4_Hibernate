@@ -1,49 +1,56 @@
 package com.tns.shopping.service;
 
-import com.tns.shopping.entities.Order;
+import entities.Item;
+import entities.Order;
+import repository.IItemRepository;
+import repository.IOrderRepository;
+import repository.IOrderRepositoryImpl;
 
-
-public class OrderServiceImpl implements IOrderService
+public class IOrderServiceImpl implements IOrderService 
 {
 	//Establishing connection between Service and Repository
-	private IOrderRepository dao;
-	
-	public OrderServiceImpl()
+	private IOrderRepository dao3;	
+	public IOrderServiceImpl()
 	{
-		dao = new OrderRepositoryImpl();
-	}
-	
-	//Service calls to perform CRUD operation
-	@Override
-	public Order addNewOrder(Order user) {
-		dao.beginTransaction();
-		dao.addNewOrder(Order);
-		dao.commitTransaction();
-		return Order;
+		dao3 = new IOrderRepositoryImpl();
 	}
 
 	@Override
-	public Order updateUser(Order user) {
-		dao.beginTransaction();
-		dao.updateUser(Order);
-		dao.commitTransaction();
-		return Order;
+	public Order addOrder(Order order) {
+		dao3.beginTransaction();
+		dao3.addOrder(order);
+		dao3.commitTransaction();
+		return order;
 	}
 
 	@Override
-	public Order login(Order Order) {
-		dao.beginTransaction();
-		((OrderServiceImpl) dao).login(Order);
-		dao.commitTransaction();
-		return Order;
+	public Order updateOrder(Order order) {
+		dao3.beginTransaction();
+		dao3.updateOrder(order);
+		dao3.commitTransaction();
+		return order;
 	}
 
 	@Override
-	public boolean logOut() {
-		dao.beginTransaction();
-		((OrderServiceImpl) dao).logOut();
-		dao.commitTransaction();
+	public Order searchOrderById(int id) {
+		Order order = dao3.searchOrderById(id);
+		return order;
+	}
+
+	@Override
+	public boolean cancelMall(int id) {
+		dao3.beginTransaction();
+		((IOrderServiceImpl) dao3).cancelMall(id);
+		dao3.commitTransaction();
 		return false;
+	}
+
+	@Override
+	public Item addItem(Item item) {
+		dao3.beginTransaction();
+		((IItemRepository) dao3).addItem(item);
+		dao3.commitTransaction();
+		return item;
 	}
 
 }

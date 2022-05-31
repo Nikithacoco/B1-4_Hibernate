@@ -1,11 +1,15 @@
 package com.tns.shopping.service;
 
-public interface IOrderRepository
+package service;
+
+import entities.Item;
+import entities.Order;
+
+public interface IOrderService 
 {
-	public Order addOrder(Order Order );
-	public Order updateOrder(Order Order);
-	public Order searchOrder(long Order);
-	public void deleteOrder(long id);
-	public abstract void commitTransaction();
-	public abstract void beginTransaction();
+	public abstract Order addOrder(Order order);
+	public abstract Order updateOrder(Order order);
+	public abstract Order searchOrderById(int id);
+	public abstract boolean cancelMall(int id);
+	public abstract Item addItem(Item item);
 }
